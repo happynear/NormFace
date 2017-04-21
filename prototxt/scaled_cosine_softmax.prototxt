@@ -1,0 +1,79 @@
+layer {
+  name: "normalize1"
+  type: "Normalize"
+  bottom: "last_ip_layer"
+  top: "norm1"
+}
+layer {
+  name: "id_weight_ip"
+  type: "Parameter"
+  top: "id_weight_ip"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  parameter_param {
+    shape {
+      dim: 10572
+      dim: 512
+    }
+    blob_filler {
+      type: "gaussian_unitball"
+    }
+  }
+}
+layer {
+  name: "id_weight_ip_normalize"
+  type: "Normalize"
+  bottom: "id_weight_ip"
+  top: "id_weight_ip_normalize"
+}
+layer {
+  name: "cosine_layer"
+  type: "InnerProduct"
+  bottom: "norm1"
+  bottom: "id_weight_ip_normalize"
+  top: "cosine"
+  inner_product_param{
+    bias_term: false
+    #distance_type: "L2"
+  }
+}
+layer {
+  name: "fc6_scale"
+  type: "Scale"
+  bottom: "fc6"
+  top: "fc6_scale"
+  scale_param {
+    num_axes: 0
+    bias_term: false
+    filler{
+     value: 10
+    }
+    bias_filler{
+      value: 0
+    }
+  }
+}
+layer {
+  name: "softmax_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "cosine"
+  bottom: "label"
+  top: "softmax_loss"
+  loss_weight: 1
+}
+
+layer {
+  name: "Accuracy"
+  type: "Accuracy"
+  bottom: "cosine"
+  bottom: "label"
+  top: "accuracy"
+  include { 
+    phase: TEST
+  }
+  accuracy_param {
+    min_is_better: false
+  }
+}
