@@ -33,7 +33,7 @@ Center Face model: [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1H
 
 # License
 
-This code is distributed under MIT LICENSE
+This code is distributed under MIT LICENSE. The released models are only allowed for non-commercial use.
 
 # Contact
 
