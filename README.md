@@ -1,6 +1,13 @@
 # NormFace
 NormFace: L2 HyperSphere Embedding for Face Verification
 
+| Baseline Model      | Original Accuracy | Finetune Using Normalization |
+| ------------------- |:-----------------:|:----------------------------:|
+| [Center Face(ResNet)](https://github.com/ydwen/caffe-face) | 99.03%            |99.21%                        |
+| [Light CNN(MaxOut)](https://github.com/AlfredXiangWu/face_verification_experiment)   | 98.41%\*          |98.78%                        |
+
+\* It is 98.13% on [Light CNN's project page](https://github.com/AlfredXiangWu/face_verification_experiment). After applying the mirror face trick, it becomes 98.41%.
+
 # Requirements
 
 1. My Caffe (https://github.com/happynear/caffe-windows/tree/ms). It also works in Linux. Anyway, if you want to use your own Caffe, please transplant the `inner_distance_layer`, `normalize_layer`, `general_contrastive_layer`, `flip_layer`, `softmax_layer` and `accuracy_layer` to your Caffe.
