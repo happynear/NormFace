@@ -21,4 +21,5 @@ NormFace: L2 HyperSphere Embedding for Face Verification
 # Trained Models
 
 Light CNN B model: [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1HT3I5V3ZLd0JDaW8) or [Baidu Yun](https://pan.baidu.com/s/1gfklrrl).
+
 Center Face model: [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1HM2NWcWFiN2lvbTg) or [Baidu Yun](https://pan.baidu.com/s/1i4Q4vD7).
