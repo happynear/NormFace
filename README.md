@@ -11,4 +11,11 @@ NormFace: $L_2$ HyperSphere Embedding for Face Verification
 
 # Train
 
-1. The dataset used in this paper is [CASIA-Webface](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html). Note that there are 3 identities overlap between CASIA-Webface and LFW. They are `0166921`, `1056413` and `1193098`. For fair evaluation, it is recommended to remove them from CAISA-Webface. Align all face images using MTCNN. The script can be found in [my another github repository](https://github.com/happynear/FaceVerification/blob/master/dataset/general_align.m).
+1. The dataset used in this paper is [CASIA-Webface](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html). Note that there are 3 identities overlap between CASIA-Webface and LFW. They are `0166921`, `1056413` and `1193098`. For fair evaluation, it is recommended to remove them from CAISA-Webface. 
+2. Align all face images using MTCNN. The script can be found in [my another github repository](https://github.com/happynear/FaceVerification/blob/master/dataset/general_align.m).
+3. Replace the final inner-product layer and softmax layer with layers defined in [scaled_cosine_softmax.prototxt](./prototxt/scaled_cosine_softmax.prototxt) or [normalized_Euclidean_contrastive.prototxt](./prototxt/normalized_Euclidean_contrastive.prototxt).
+4. Fine-tune the model using a small learning rate, say 0.001 or 0.0001.
+
+# Evaluation
+
+# Trained Models
