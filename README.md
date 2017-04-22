@@ -3,8 +3,8 @@ NormFace: L2 HyperSphere Embedding for Face Verification
 
 | Baseline Model      | Original Accuracy | Finetune Using Normalization |
 | ------------------- |:-----------------:|:----------------------------:|
-| [Center Face(ResNet)](https://github.com/ydwen/caffe-face) | 99.03%            |99.21%                        |
 | [Light CNN(MaxOut)](https://github.com/AlfredXiangWu/face_verification_experiment)   | 98.41%\*          |98.78%                        |
+| [Center Face(ResNet)](https://github.com/ydwen/caffe-face) | 99.03%            |99.21%                        |
 
 \* It is 98.13% on [Light CNN's project page](https://github.com/AlfredXiangWu/face_verification_experiment). After applying [the mirror face trick](./prototxt/example_of_mirror_face.prototxt), it becomes 98.41%.
 
