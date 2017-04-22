@@ -29,6 +29,10 @@ Evaluation codes are in [my another github repository](https://github.com/happyn
 
 A trick called mirror face is used during extracting the features. A sample code is in `./prototxt/example_of_mirror_face.prototxt`.
 
+**About the mirror face:** Mirror face is the most effective prior for face image analysis. You may also try it on other face image tasks. However, I find it has no help on **training** face verification models. It can improve the performance of face identification. But when I applied it on face verification, the accuracy even decreased:(
+
+**About histogram feature for video face verification:** 
+
 # Trained Models
 
 Light CNN B model(98.78%): [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1HT3I5V3ZLd0JDaW8) or [Baidu Yun](https://pan.baidu.com/s/1gfklrrl).
