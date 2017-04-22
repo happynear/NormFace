@@ -14,7 +14,7 @@ NormFace: L2 HyperSphere Embedding for Face Verification
 2. Matlab to draw some figures.
 3. GPU with CUDA support.
 4. MTCNN face and facial landmark detector(https://github.com/kpzhang93/MTCNN_face_detection_alignment).
-5. Baseline model such as [center face](https://github.com/ydwen/caffe-face) or [Light CNN](https://github.com/AlfredXiangWu/face_verification_experiment) or your own model trained by softmax loss.
+5. Baseline model such as [center face](https://github.com/ydwen/caffe-face) or [Light CNN](https://github.com/AlfredXiangWu/face_verification_experiment) or your own model trained by softmax loss. I don't know whether my loss helps or not if your model is trained by other loss functions. You may have a try. I believe it will be effective if there is no normalization term in your model.
 
 # Train
 
@@ -29,9 +29,9 @@ Evaluation codes are in [my another github repository](https://github.com/happyn
 
 A trick called mirror face is used during extracting the features. A sample code is in `./prototxt/example_of_mirror_face.prototxt`.
 
-**About the mirror face:** Mirror face is the most effective prior for face image analysis. You may also try it on other face image tasks. However, I find it has no help on **training** face verification models. It can improve the performance of face identification. But when I applied it on face verification, the accuracy even decreased:(
+**About the mirror face:** Mirror face is the most effective prior for face image analysis. You may also try it on other face image tasks in and end-to-end manner. However, I find it has no help on **training** face verification models. It can improve the performance of face identification, but when I applied it on face verification, the accuracy even decreased:(
 
-**About histogram feature for video face verification:** 
+**About the histogram feature for video face verification:**  
 
 # Trained Models
 
