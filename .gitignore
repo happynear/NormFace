@@ -1,1 +1,5 @@
 log
+mnist_train_lmdb
+mnist_test_lmdb
+*.caffemodel
+*.solverstate
