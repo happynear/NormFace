@@ -16,7 +16,7 @@ https://arxiv.org/abs/1704.06369
 2. Matlab to draw some figures.
 3. GPU with CUDA support.
 4. MTCNN face and facial landmark detector(https://github.com/kpzhang93/MTCNN_face_detection_alignment).
-5. Baseline model such as [center face](https://github.com/ydwen/caffe-face) or [Light CNN](https://github.com/AlfredXiangWu/face_verification_experiment) or your own model trained by softmax loss. I don't know whether my loss helps or not if your model is trained by other loss functions. You may have a try. I believe it will be effective if there is no normalization term in your model.
+5. Baseline model such as [Center Face](https://github.com/ydwen/caffe-face) or [Light CNN](https://github.com/AlfredXiangWu/face_verification_experiment) or your own model trained by softmax loss. I don't know whether my loss helps or not if your model is trained by other loss functions. You may have a try. I believe it will be effective if there is no normalization term in your model.
 
 # Train
 
