@@ -45,7 +45,7 @@ With my model:
 | PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
 | ---- |:-----------:|:-----------:|:----------------:|:----------------:|
 | No   | 98.77%      |99.03%       |99.02%            |99%               |
-| YES  | 98.96%      |99.17%       |99.22%            |99.22%            |
+| YES  | 98.96%      |99.17%       |99.2167%          |99.2167%          |
 
 **About the histogram feature for video face verification:** Details are in [./YTF](https://github.com/happynear/NormFace/tree/master/YTF).
 
