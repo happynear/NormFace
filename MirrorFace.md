@@ -1,5 +1,7 @@
 # Mirror Face
 
+-- It seems that many friends are curious about the mirror face trick. I am opening a new file to describe it with more details.
+
 Mirror face is the most effective prior for face image analysis. 
 It computes the frontal face and mirror face simultaneously and merge the two features together as the final feature.
 
@@ -37,3 +39,5 @@ With my model:
 | YES  | 98.45%      |98.55%       |98.65%            |98.62%            |
 
 It's strange that with my C-contrastive loss, the performance of `No PCA` is better... Maybe this is because I the margin I used is 1.2, which is more closer with the real one.
+
+Should I add these things to supplement material?...
