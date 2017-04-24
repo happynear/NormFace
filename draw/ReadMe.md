@@ -11,3 +11,5 @@
 - figure 6: Run `create_figure3.m` to create Figure 6 of the paper. Note that this figure is drew on a 3d sphere. You can rotate the figure to see the whole sphere.
 
 ![figure6](figure6/figure6.png)
+
+![figure6_rot](figure6/figure6_rot.png)

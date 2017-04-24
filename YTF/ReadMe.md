@@ -1,5 +1,7 @@
 # Evaluation on Youtube Face(YTF)
 
+Dataset home page: https://www.cs.tau.ac.il/~wolf/ytfaces/
+
 1. First of all, we need to create the folder structure. Use function `image_list = get_image_list_in_folder(YTF_FOLDER)` to get all the images in `YTF_FOLDER`.
 Then use `create_folder_map.m` to create the file-to-folder map. It is recommended to save the `image_list` and `subset_map` variables to a .mat file.
 
