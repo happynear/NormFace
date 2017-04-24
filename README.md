@@ -40,6 +40,13 @@ Here are the accuracies using [Wen's model](https://github.com/ydwen/caffe-face)
 | No   | 98.5%       |98.53%       |98.63%            |98.67%            |
 | YES  | 98.8%       |98.92%       |98.93%            |98.95%            |
 
+With my model:
+
+| PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
+| ---- |:-----------:|:-----------:|:----------------:|:----------------:|
+| No   | 98.77%      |99.03%       |99.02%            |99%               |
+| YES  | 98.96%      |99.17%       |99.22%            |99.22%            |
+
 **About the histogram feature for video face verification:** Details are in [./YTF](https://github.com/happynear/NormFace/tree/master/YTF).
 
 # Trained Models
