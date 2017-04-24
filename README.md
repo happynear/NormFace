@@ -55,6 +55,7 @@ Title = {NormFace: L2 Hypersphere Embedding for Face Verification},
 Year = {2017},
 Eprint = {arXiv:1704.06369}
 }
+```
 
 # Contact
 
