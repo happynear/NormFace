@@ -40,6 +40,6 @@ With my model:
 | No   | 98.48%      |98.73%       |98.78%            |98.78%            |
 | YES  | 98.45%      |98.55%       |98.65%            |98.62%            |
 
-It's strange that with my C-contrastive loss, the performance of `No PCA` is better... Maybe this is because I the margin I used is 1.2, which is more closer with the real one.
+It's strange that with my C-contrastive loss, the performance of `No PCA` is better... Anyway, in Wu's paper, he didn't use PCA either. So there is nothing wrong with what I said in my paper: "I follow all the experiment settings of the original paper".
 
 Should I add these things to supplement material?...
