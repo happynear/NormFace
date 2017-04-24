@@ -21,3 +21,19 @@ With my model:
 | ---- |:-----------:|:-----------:|:----------------:|:----------------:|
 | No   | 98.77%      |99.03%       |99.02%            |99%               |
 | YES  | 98.96%      |99.17%       |99.2167%          |99.2167%          |
+
+And with [Wu's Light CNN B](https://github.com/AlfredXiangWu/face_verification_experiment):
+
+| PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
+| ---- |:-----------:|:-----------:|:----------------:|:----------------:|
+| No   | 98.10%      |98.35%       |98.35%            |98.42%            |
+| YES  | 98.41%      |98.63%       |98.61%            |98.63%            |
+
+With my model:
+
+| PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
+| ---- |:-----------:|:-----------:|:----------------:|:----------------:|
+| No   | 98.48%      |98.73%       |98.78%            |98.78%            |
+| YES  | 98.45%      |98.55%       |98.65%            |98.62%            |
+
+It's strange that with my C-contrastive loss, the performance of `No PCA` is better... Maybe this is because I the margin I used is 1.2, which is more closer with the real one.
