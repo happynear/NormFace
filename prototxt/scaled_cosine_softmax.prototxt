@@ -10,12 +10,12 @@ layer {
   top: "id_weight_ip"
   param {
     lr_mult: 1
-    decay_mult: 0
+    decay_mult: 1
   }
   parameter_param {
     shape {
-      dim: 10572
-      dim: 512
+      dim: 10572#class number
+      dim: 512#feature dimension
     }
     blob_filler {
       type: "gaussian_unitball"
