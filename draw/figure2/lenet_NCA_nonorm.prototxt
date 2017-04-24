@@ -1,0 +1,276 @@
+name: "LeNet++"
+layer {
+  name: "mnist"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mean_value: 128
+    scale: 0.0078125
+  }
+  data_param {
+    source: "D:/deeplearning/mscaffe/examples/mnist/mnist_train_lmdb"
+    batch_size: 128 
+    backend: LMDB
+  }
+}
+layer {
+  name: "mnist"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    mean_value: 128
+    scale: 0.0078125
+  }
+  data_param {
+    source: "D:/deeplearning/mscaffe/examples/mnist/mnist_test_lmdb"
+    batch_size: 100
+    backend: LMDB
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 20
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "relu_pool1"
+  type: "PReLU"
+  bottom: "pool1"
+  top: "pool1"
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 50
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "relu_pool2"
+  type: "PReLU"
+  bottom: "pool2"
+  top: "pool2"
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "pool2"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 500
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "relu1"
+  type: "PReLU"
+  bottom: "ip1"
+  top: "ip1"
+}
+layer {
+  name: "ip1_dr"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip1_dr"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 2
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "id_weight"
+  type: "Parameter"
+  top: "id_weight"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  parameter_param {
+    shape {
+      dim: 10
+      dim: 2
+    }
+    blob_filler {
+      type: "xavier"
+    }
+  }
+}
+
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1_dr"
+  bottom: "id_weight"
+  top: "ip2"
+  #propagate_down: false
+  inner_product_param {
+    bias_term: false
+  }
+  inner_distance_param {
+    distance_type: "L2"
+  }
+}
+layer {
+  name: "label_specific_rescale"
+  type: "LabelSpecificRescale"
+  bottom: "ip2"
+  bottom: "label"
+  top: "ip2_rescale"
+  label_specific_rescale_param {
+    positive_weight: 1
+    negative_weight: 1
+  }
+}
+layer{ 
+  name: "scale_ip2"
+  type: "Scale"
+  bottom: "ip2_rescale"
+  top: "ip2_rescale"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  scale_param {
+    num_axes: 0
+    filler {
+      value: -1
+    }
+  }
+}
+#layer {
+#  name: "sqrt_ip2"
+#  type: "Power"
+#  bottom: "ip2"
+#  top: "sqrt_ip2"
+#  power_param {
+#    power: 0.5
+#  }
+#}
+#layer {
+#  name: "fix_ip2"
+#  type: "PReLU"
+#  bottom: "ip2"
+#  top: "ip2"
+#}
+#layer {
+#  name: "SoftTruncation_ip2"
+#  bottom: "ip2"
+#  top: "ip2"
+#  type: "SoftTruncation"
+#  soft_truncation_param {
+#    c: 2
+#  }
+#}
+
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip2"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+  accuracy_param {
+    min_is_better: true
+  }
+}
+
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip2_rescale"
+  bottom: "label"
+  top: "loss"
+  loss_weight: 1
+}

@@ -1,0 +1,77 @@
+name: "Test_InnerDistance_Layer"
+input: "data"
+input_dim: 200
+input_dim: 3
+input_dim: 1
+input_dim: 1
+input: "label"
+input_dim: 200
+input_dim: 1
+input_dim: 1
+input_dim: 1
+force_backward: true
+
+layer {
+  name: "norm1"
+  type: "Normalize"
+  bottom: "data"
+  top: "norm1"
+  
+  softmax_param {
+    normalize_type: "L2"
+  }
+}
+
+layer {
+  name: "id_weight"
+  type: "Parameter"
+  top: "id_weight"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  parameter_param {
+    shape {
+      dim: 2
+      dim: 3
+    }
+    blob_filler {
+      type: "gaussian_unitball"
+    }
+  }
+}
+layer {
+  name: "id_weight_normalize"
+  type: "Normalize"
+  bottom: "id_weight"
+  top: "id_weight_normalize"
+  normalize_param {
+    normalize_type: "L2"
+  }
+}
+
+layer {
+  name: "ip2"
+  type: "InnerDistance"
+  bottom: "norm1"
+  bottom: "id_weight_normalize"
+  top: "ip2"
+}
+layer {
+  name: "loss"
+  type: "GeneralContrastiveLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+  top: "mean_distance"
+  loss_weight: 1
+  loss_weight: 1
+  #general_contrastive_loss_param{
+  #  positive_outlier_thresh: 2
+  #}
+  general_contrastive_loss_param{
+    positive_margin: 0
+    negative_margin: 1
+    negative_weight: 1
+  }
+}
