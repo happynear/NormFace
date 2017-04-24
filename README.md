@@ -33,7 +33,7 @@ A trick called mirror face is used during extracting the features. A sample code
 
 **About the mirror face:** Mirror face is the most effective prior for face image analysis. You may also try it on other face image tasks in and end-to-end manner. However, I find it has no help on **training** face verification models. It can improve the performance of face identification, but when I applied it on face verification, the accuracy even decreased:(
 
-**About the histogram feature for video face verification:**  
+**About the histogram feature for video face verification:** Details are in [./YTF](https://github.com/happynear/NormFace/tree/master/YTF).
 
 # Trained Models
 
