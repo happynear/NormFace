@@ -30,7 +30,7 @@ And with [Wu's Light CNN B](https://github.com/AlfredXiangWu/face_verification_e
 
 | PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
 | ---- |:-----------:|:-----------:|:----------------:|:----------------:|
-| No   | 98.10%      |98.35%       |98.35%            |98.42%            |
+| No   | 98.10%      |98.35%       |98.42%            |98.35%            |
 | YES  | 98.41%      |98.63%       |98.61%            |98.63%            |
 
 With my model:
