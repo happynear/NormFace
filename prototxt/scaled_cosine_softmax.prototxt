@@ -40,10 +40,10 @@ layer {
   }
 }
 layer {
-  name: "fc6_scale"
+  name: "cosine_scale"
   type: "Scale"
-  bottom: "fc6"
-  top: "fc6_scale"
+  bottom: "cosine"
+  top: "cosine"
   scale_param {
     num_axes: 0
     bias_term: false
