@@ -31,7 +31,7 @@ Evaluation codes are in [my another github repository](https://github.com/happyn
 
 A trick called mirror face is used during extracting the features. A sample code is in `./prototxt/example_of_mirror_face.prototxt`.
 
-**About the mirror face:** Mirror face is the most effective prior for face image analysis. You may also try it on other face image tasks in and end-to-end manner. However, I find it has no help on **training** face verification models. It can improve the performance of face identification, but when I applied it on face verification, the accuracy even decreased:(
+**About the mirror face:**  See [./MirrorFace.md](./MirrorFace.md)
 
 **About the histogram feature for video face verification:** Details are in [./YTF](https://github.com/happynear/NormFace/tree/master/YTF).
 
@@ -47,7 +47,7 @@ This code is distributed under MIT LICENSE. The released models are only allowed
 
 # Citation
 
-If you find these codes useful in your research, please cite
+If you find my paper or the codes useful in your research, please cite
 ```
 @article{Wang2017NormFace,
 Author = {Feng Wang and Xiang Xiang and Jian Cheng and Alan L. Yuille},
