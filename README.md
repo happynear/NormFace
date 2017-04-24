@@ -1,6 +1,8 @@
 # NormFace
 NormFace: L2 HyperSphere Embedding for Face Verification
 
+https://arxiv.org/abs/1704.06369
+
 | Baseline Model      | Original Accuracy | Finetune Using Normalization |
 | ------------------- |:-----------------:|:----------------------------:|
 | [Light CNN(MaxOut)](https://github.com/AlfredXiangWu/face_verification_experiment)   | 98.41%\*          |98.78%                        |
@@ -42,6 +44,17 @@ Center Face model(99.21%): [Google Drive](https://drive.google.com/open?id=0B0Oh
 # License
 
 This code is distributed under MIT LICENSE. The released models are only allowed for non-commercial use.
+
+# Citation
+
+If you find these codes useful in your research, please cite
+```
+@article{Wang2017NormFace,
+Author = {Feng Wang and Xiang Xiang and Jian Cheng and Alan L. Yuille},
+Title = {NormFace: L2 Hypersphere Embedding for Face Verification},
+Year = {2017},
+Eprint = {arXiv:1704.06369}
+}
 
 # Contact
 
