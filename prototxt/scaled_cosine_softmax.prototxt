@@ -36,7 +36,6 @@ layer {
   top: "cosine"
   inner_product_param{
     bias_term: false
-    #distance_type: "L2"
   }
 }
 layer {
