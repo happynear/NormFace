@@ -1,10 +1,10 @@
 # Mirror Face
 
-It seems that many friends are curious about the mirror face trick. I am opening a new file to describe it with more details.
+It seems that many friends are curious about the mirror face trick. I am writing this technical report to describe it with more details.
 
 ![mirror](mirror.png)
 
-Mirror face is the most effective prior for face image analysis. 
+Mirror face is (one of) the most effective prior for face image analysis. 
 It extracts features from the frontal face and mirror face simultaneously and merge the two features together as the final feature. A sample network is in [./prototxt/example_of_mirror_face.prototxt](https://github.com/happynear/NormFace/blob/master/prototxt/example_of_mirror_face.prototxt).
 
 Mirror face can be trained in an end-to-end manner.
