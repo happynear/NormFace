@@ -42,4 +42,4 @@ With my model:
 
 It's strange that with my C-contrastive loss, the performance of `No PCA` is better... Anyway, in Wu's paper, he didn't use PCA either. So there is nothing wrong with what I said in my paper: "I follow all the experiment settings of the original paper".
 
-Should I add these things to supplement material?...
+To sum up, the mirror face trick is effective on most of models (actually I never see cases that mirror face does not work). However, we are lacking of theoretical explanation for it. Whether to use SUM or MAX, how to train it end-to-endly in face verification models, these are still open problems. Hope this report can inspire people to do further research.
