@@ -12,7 +12,7 @@ However, I find it has no help on **training** face verification models.
 It can improve the performance of face identification, but when I applied it on face verification, the accuracy even decreased:(
 
 Here are the accuracies using [Wen's model](https://github.com/ydwen/caffe-face) with different feature merging strategy.
-We didn't put this table into our paper because we thought this was only a trick.
+We didn't put these tables into our paper because we thought this was only a trick.
 
 | PCA? | Front only  | Concatenate | Element-wise SUM | Element-wise MAX |
 | ---- |:-----------:|:-----------:|:----------------:|:----------------:|
