@@ -5,7 +5,7 @@ It seems that many friends are curious about the mirror face trick. I am opening
 ![mirror](mirror.png)
 
 Mirror face is the most effective prior for face image analysis. 
-It computes the frontal face and mirror face simultaneously and merge the two features together as the final feature.
+It extracts features from the frontal face and mirror face simultaneously and merge the two features together as the final feature. A sample network is in [./prototxt/example_of_mirror_face.prototxt](https://github.com/happynear/NormFace/blob/master/prototxt/example_of_mirror_face.prototxt).
 
 Mirror face can be trained in an end-to-end manner.
 However, I find it has no help on **training** face verification models.
