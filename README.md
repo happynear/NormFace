@@ -39,6 +39,8 @@ A trick called mirror face is used during extracting the features. A sample code
 
 Light CNN B model(98.78%): [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1HT3I5V3ZLd0JDaW8) or [Baidu Yun](https://pan.baidu.com/s/1gfklrrl).
 
+ps: I used to get a model of 98.8%, but I lost it....
+
 Center Face model(99.21%): [Google Drive](https://drive.google.com/open?id=0B0OhXbSTAU1HM2NWcWFiN2lvbTg) or [Baidu Yun](https://pan.baidu.com/s/1i4Q4vD7).
 
 # License
