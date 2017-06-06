@@ -58,7 +58,7 @@ layer {
   bottom: "norm1"
   bottom: "id_weight_l2_normalize"
   top: "euclidean"
-  inner_product_param{
+  inner_distance_param{
     bias_term: false
     distance_type: "L2"
   }
