@@ -1,7 +1,7 @@
 # NormFace
 NormFace: L2 HyperSphere Embedding for Face Verification
 
-https://arxiv.org/abs/1704.06369
+http://www.cs.jhu.edu/~alanlab/Pubs17/wang2017normface.pdf
 
 | Baseline Model      | Original Accuracy | Finetune Using Normalization |
 | ------------------- |:-----------------:|:----------------------------:|
