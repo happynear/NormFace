@@ -3,6 +3,8 @@ NormFace: L2 HyperSphere Embedding for Face Verification
 
 http://www.cs.jhu.edu/~alanlab/Pubs17/wang2017normface.pdf
 
+Announcement: Current arXiv version refers to a wrong result for A-softmax. I made a mistake when counting the depth of my CNN. The value 99.26% is for ResNet-20, while my CNN is ResNet-27.
+
 | Baseline Model      | Original Accuracy | Finetune Using Normalization |
 | ------------------- |:-----------------:|:----------------------------:|
 | [Light CNN(MaxOut)](https://github.com/AlfredXiangWu/face_verification_experiment)   | 98.41%\*          |98.78%                        |
