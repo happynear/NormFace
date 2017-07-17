@@ -1,0 +1,71 @@
+layer {
+  name: "normalize1"
+  type: "Normalize"
+  bottom: "last_ip_layer"
+  top: "norm1"
+}
+layer {
+  name: "id_weight_l2"
+  type: "Parameter"
+  top: "id_weight_l2"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  parameter_param {
+    shape {
+      dim: 10572 # class number
+      dim: 512 # feature dimension
+    }
+    blob_filler {
+      type: "gaussian_unitball"
+    }
+  }
+}
+layer {
+  name: "id_weight_l2_normalize"
+  type: "Normalize"
+  bottom: "id_weight_l2"
+  top: "id_weight_l2_normalize"
+}
+layer {
+  name: "normalized_Euclidean"
+  type: "InnerDistance"
+  bottom: "norm1"
+  bottom: "id_weight_l2_normalize"
+  top: "normalized_Euclidean"
+  inner_distance_param{
+    bias_term: false
+    distance_type: "L2"
+  }
+}
+layer {
+  name: "triplet_loss"
+  type: "GeneralTripletLoss"
+  bottom: "normalized_Euclidean"
+  bottom: "label"
+  top: "contrastive_loss"
+  top: "mean_distance"
+  loss_weight: 1
+  loss_weight: 1
+  general_triplet_loss_param {
+    margin: 0.8
+    add_center_loss: true
+    hardest_only: true
+    negative_weight: 1
+  }
+}
+
+layer {
+  name: "Accuracy"
+  type: "Accuracy"
+  bottom: "normalized_Euclidean"
+  bottom: "label"
+  top: "accuracy"
+  include { 
+    phase: TEST
+  }
+  accuracy_param {
+    min_is_better: true
+  }
+}
