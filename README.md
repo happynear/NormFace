@@ -53,11 +53,13 @@ This code is distributed under MIT LICENSE. The released models are only allowed
 
 If you find my paper or the codes useful in your research, please cite
 ```
-@article{Wang2017NormFace,
-Author = {Feng Wang and Xiang Xiang and Jian Cheng and Alan L. Yuille},
-Title = {NormFace: L2 Hypersphere Embedding for Face Verification},
-Year = {2017},
-Eprint = {arXiv:1704.06369}
+@inproceedings{wang2017normface,
+  title={NormFace: L2 Hypersphere Embedding for Face Verification},
+  author={Wang, Feng and Xiang, Xiang and Cheng, Jian and Yuille, Alan L.},
+  booktitle={Proceedings of the 25th ACM international conference on Multimedia},
+  year={2017},
+  organization={ACM},
+  doi = {https://doi.org/10.1145/3123266.3123359}
 }
 ```
 
