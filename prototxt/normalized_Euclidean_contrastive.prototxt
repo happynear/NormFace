@@ -5,38 +5,22 @@ layer {
   top: "norm1"
 }
 layer {
-  name: "id_weight_l2"
-  type: "Parameter"
-  top: "id_weight_l2"
-  param {
-    lr_mult: 1
-    decay_mult: 0
-  }
-  parameter_param {
-    shape {
-      dim: 10572 # class number
-      dim: 512 # feature dimension
-    }
-    blob_filler {
-      type: "gaussian_unitball"
-    }
-  }
-}
-layer {
-  name: "id_weight_l2_normalize"
-  type: "Normalize"
-  bottom: "id_weight_l2"
-  top: "id_weight_l2_normalize"
-}
-layer {
   name: "normalized_Euclidean"
   type: "InnerDistance"
   bottom: "norm1"
-  bottom: "id_weight_l2_normalize"
   top: "normalized_Euclidean"
+  param {
+    lr_mult: 100
+    decay_mult: 0
+  }
   inner_distance_param{
     bias_term: false
     distance_type: "L2"
+    normalize: true
+    num_output: 10572
+    weight_filler {
+      type: "gaussian_unitball"
+    }
   }
 }
 layer {

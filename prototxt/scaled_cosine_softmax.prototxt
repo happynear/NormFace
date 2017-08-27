@@ -5,37 +5,21 @@ layer {
   top: "norm1"
 }
 layer {
-  name: "id_weight_ip"
-  type: "Parameter"
-  top: "id_weight_ip"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  parameter_param {
-    shape {
-      dim: 10572 # class number
-      dim: 512 # feature dimension
-    }
-    blob_filler {
-      type: "gaussian_unitball"
-    }
-  }
-}
-layer {
-  name: "id_weight_ip_normalize"
-  type: "Normalize"
-  bottom: "id_weight_ip"
-  top: "id_weight_ip_normalize"
-}
-layer {
   name: "cosine_layer"
   type: "InnerProduct"
   bottom: "norm1"
-  bottom: "id_weight_ip_normalize"
   top: "cosine"
+  param {
+    lr_mult: 100
+    decay_mult: 0
+  }
   inner_product_param{
     bias_term: false
+    normalize: true
+    num_output: 10572
+    weight_filler {
+      type: "gaussian_unitball"
+    }
   }
 }
 layer {
@@ -46,6 +30,7 @@ layer {
   scale_param {
     num_axes: 0
     bias_term: false
+    min_value: 0.01
     filler{
      value: 10
     }
